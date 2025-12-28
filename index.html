@@ -1,0 +1,46 @@
+<iframe 
+    srcdoc="
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset='UTF-8'>
+            <script src='https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js'></script>
+            <style>
+                body { margin: 0; padding: 0; }
+                #chart { width: 100%; height: 100vh; }
+            </style>
+        </head>
+        <body>
+            <div id='chart'></div>
+            <script>
+                // 这里插入您的完整数据
+                var data = [ /* 您所有的数据 */ ];
+                
+                var chart = echarts.init(document.getElementById('chart'));
+                var option = {
+                    tooltip: { trigger: 'item' },
+                    series: [{
+                        type: 'tree',
+                        data: data,
+                        top: '1%',
+                        left: '7%',
+                        bottom: '1%',
+                        right: '20%',
+                        symbolSize: 7,
+                        label: { position: 'left', fontSize: 12 },
+                        leaves: { label: { position: 'right' } },
+                        emphasis: { focus: 'descendant' },
+                        expandAndCollapse: true
+                    }]
+                };
+                chart.setOption(option);
+                window.addEventListener('resize', () => chart.resize());
+            </script>
+        </body>
+        </html>
+    "
+    width="100%"
+    height="800px"
+    frameborder="0"
+    scrolling="no"
+></iframe>
